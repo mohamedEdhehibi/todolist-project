@@ -1,31 +1,14 @@
-import './App.css';
-import Taskstab from './components/Tasks'   
-import Todolist from './components/Todolist';
-import { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import AddTask from './components/AddTask';
-function App() {
-  const [tasks,setTasks]=useState(Taskstab)
-  const taskdelete=(id)=>{
-    setTasks(tasks.filter(ele=>ele.id!==id))
-  }
-  const taskdone=(id)=>{
-    setTasks(tasks.map((ele) => ele.id === id ? { ...ele ,done:!ele.done}:ele))
-  }
-  const addtask=(task)=>{
-    setTasks([...tasks, task])
-  }
+import React from 'react'
+import CountOne from './Hook/custem hook/CountOne'
+import CountTow from './Hook/custem hook/CountTow'
+
+const App = () => {
   return (
-    <div className="App">
-      <h1>Todo list</h1>
-      <Todolist 
-      todos={tasks} 
-      handledelete={taskdelete}
-      handledone={taskdone}
-      />
-      <AddTask addtask={addtask}/>
-    </div>
-  );
+    <>
+      <CountOne />
+      <CountTow/>
+    </>
+  )
 }
 
-export default App;
+export default App
